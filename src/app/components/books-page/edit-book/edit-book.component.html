@@ -1,0 +1,87 @@
+<form [formGroup]="bookForm" (ngSubmit)="bookId ? updateBook() : addBook()"  (reset)="clearForm()" fxLayout="column">
+
+  <mat-card-header>
+    <mat-card-title>
+      {{bookId ?"Update" : "Add"}} Book
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-card-content fxLayout="column" fxFlex="350px" style="margin-left:200px">
+      <mat-form-field>
+        <mat-label>Title:</mat-label>
+        <input matInput type="text" id="title" formControlName="title" required [errorStateMatcher]="matcher">
+        <mat-error *ngIf="bookForm.get('title')?.hasError('required')">
+          Title is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('title')?.hasError('maxlength')">
+          Title is <strong>max length </strong> 50 symbols
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <ngx-mat-file-input [formControl]="cover" [multiple]="false" accept=".png, .jpg, .jpeg" [color]="color" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="cover?.hasError('required')">
+              Cover is <strong>required</strong>
+          </mat-error>
+        </ngx-mat-file-input>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Genre:</mat-label>
+        <input matInput type="text" id="genre" formControlName="genre" required [errorStateMatcher]="matcher">
+
+
+        <mat-error *ngIf="bookForm.get('genre')?.hasError('required')">
+          Genre is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('genre')?.hasError('pattern')">
+          Genre must contains <strong>only letters and symbol "-" </strong>
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('genre')?.hasError('minlength')">
+          Genre is <strong>min length </strong> 3 symbols
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('genre')?.hasError('maxlength')">
+          Genre is <strong>max length </strong> 25 symbols
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Author:</mat-label>
+        <input matInput type="text" id="author" formControlName="author" required [errorStateMatcher]="matcher">
+        <mat-error *ngIf="bookForm.get('author')?.hasError('required')">
+          Author is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="bookForm.get('author')?.hasError('pattern')">
+          Author must contains <strong>only letters and symbol "-" </strong>
+        </mat-error>
+
+      </mat-form-field>
+    </mat-card-content >
+
+
+    <mat-card-content fxLayoutAlign="right" fxFlex="650px">
+
+        <mat-form-field fxFlex="100%">
+          <mat-label>Content:</mat-label>
+          <textarea matInput id="content" formControlName="content" required rows="10" [errorStateMatcher]="matcher"></textarea>
+          <mat-error *ngIf="bookForm.get('content')?.hasError('required')">
+            Content is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="bookForm.get('content')?.hasError('minlength')">
+            Content is <strong>min length </strong> 10 symbols
+          </mat-error>
+          <mat-error *ngIf="bookForm.get('content')?.hasError('maxlength')">
+            Content is <strong>max length </strong> 1000 symbols
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+
+
+  </mat-card>
+  <mat-card>
+  <mat-card-content fxLayoutAlign="center none">
+    <mat-card-actions fxFlex="300px" fxLayoutAlign="space-evenly none">
+      <button mat-raised-button type="submit" [disabled]="bookForm.invalid" fxFlex="120px" class="buttonAdd"> {{bookId ?"Update" : "Add"}}</button>
+      <button mat-raised-button color="primary" type="reset" fxFlex="120px">Clear</button>
+    </mat-card-actions>
+  </mat-card-content>
+  </mat-card>
+</form>

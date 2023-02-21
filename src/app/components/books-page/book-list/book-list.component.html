@@ -1,0 +1,12 @@
+<mat-button-toggle-group [(ngModel)]="filterBooks" aria-label="Font Style" (ngModelChange)="onChangeFilter()">
+    <mat-button-toggle value="All">All</mat-button-toggle>
+    <mat-button-toggle value="Recommended">Recommended</mat-button-toggle>
+</mat-button-toggle-group>
+<div class="scroll-block">
+  <mat-grid-list cols="2" rowHeight="150px" class="wrapBooksBlock" gutterSize="15px">
+    <mat-grid-tile *ngFor="let book of books$ | async" class="booksBlock">
+      <app-book-list-item [book]="book" class="bookBlock"></app-book-list-item>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+

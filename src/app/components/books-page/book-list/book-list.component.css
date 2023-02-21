@@ -1,0 +1,25 @@
+.scroll-block {
+  height: 330px;
+  overflow-y: scroll;
+  text-align: center;
+  padding-top:20px;
+  border:2px solid black;
+
+}
+.booksBlock{
+  width: 80%;
+  border: 2px solid darkslateblue;
+  border-radius: 8px;
+
+}
+.bookBlock{
+  width: 700px;
+  background-color: ghostwhite;
+  box-shadow: 1px 1px 1px 1px wheat;
+  border-radius: 5px;
+}
+.wrapBooksBlock{
+  width: 95%;
+  margin: auto;
+}
+

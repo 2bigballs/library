@@ -1,0 +1,64 @@
+<mat-card class="zone zone-picker">
+  <mat-form-field>
+    <ngx-mat-file-input [formControl]="fileControl" [multiple]="multiple" [accept]="accept" [color]="color">
+      <!-- <mat-icon ngxMatFileInputIcon>folder</mat-icon> -->
+    </ngx-mat-file-input>
+  </mat-form-field>
+</mat-card>
+
+<mat-card class="zone zone-value flex-column">
+
+  <div class="title">Selected file(s):</div>
+  <div class="value">
+    <ul>
+      <li *ngFor="let item of files">{{item?.name}}</li>
+    </ul>
+  </div>
+</mat-card>
+
+<mat-card class="zone zone-errors flex-column">
+  <div class="title">Errors (Max size: {{maxSize}}Ko)</div>
+  <div class="value">{{fileControl.errors | json}}</div>
+</mat-card>
+
+<mat-card class="zone zone-config">
+  <div class="config-wrapper">
+    <span class="label">disabled (Default: false) </span>
+    <mat-radio-group aria-label="Select an option" [ngModel]="disabled" (ngModelChange)="onDisabledChanged($event)">
+      <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option.value">
+        {{option.label}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="config-wrapper">
+    <span class="label">multiple (Default: false) </span>
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="multiple">
+      <mat-radio-button class="example-radio-button" *ngFor="let option of options" [value]="option.value">
+        {{option.label}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="config-wrapper">
+    <span class="label">accept (Default: null) </span>
+    <mat-form-field>
+      <mat-label>Select accept</mat-label>
+      <mat-select [(ngModel)]="accept">
+        <mat-option *ngFor="let item of listAccepts" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="config-wrapper">
+    <span class="label">color (Default: primary) </span>
+    <mat-form-field>
+      <mat-label>Select color</mat-label>
+      <mat-select [(ngModel)]="color">
+        <mat-option *ngFor="let item of listColors" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-card>

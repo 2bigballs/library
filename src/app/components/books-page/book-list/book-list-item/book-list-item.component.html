@@ -1,0 +1,17 @@
+<mat-card class="my-card">
+  <img mat-card-sm-image [src]="book.cover">
+  <mat-card-title>{{book.title}}</mat-card-title>
+  <mat-card-content>
+    Review: {{book.reviewsNumber}}
+    Review: {{book.rating | number:"1.1-1"}}
+  </mat-card-content>
+
+  <mat-card-actions>
+  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="handleEdit()">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="handleView()">
+    <mat-icon>visibility</mat-icon>
+  </button>
+  </mat-card-actions>
+</mat-card>
