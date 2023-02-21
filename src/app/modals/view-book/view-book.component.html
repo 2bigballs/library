@@ -2,7 +2,6 @@
 <div class="mainBlock">
 
 <div fxLayout="row"  class="subMainBlock">
-  <div class="subSubMainBlock">
 
   <h1 mat-dialog-title class="modal-title">
     Details
@@ -11,25 +10,28 @@
     <mat-icon>close</mat-icon>
   </button>
 </div>
-</div>
 
 
 
 
-<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start">
-  <div fxLayout="column" fxLayoutAlign="start center" fxFlex="30%" class="img-block">
-    <img [src]="book.cover" alt="Book Cover" fxFlex="70%" fxFlex.gt-sm="100%">
+<div class="Mainline"></div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" class="mainBlockBody">
+
+  <div fxLayout="column" fxLayoutAlign="start center" fxFlex="40%" class="img-block">
+    <img [src]="book.cover" alt="Book Cover" fxFlex="70%" >
     <div fxLayout="row" fxLayoutAlign="center center">
       <mat-icon>star</mat-icon>
       <span class="rating">{{ book.rating | number:"1.0-1"}}</span>
       <span class="review-count">({{ book.reviews.length }} reviews)</span>
     </div>
   </div>
-  <div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="70%" fxLayoutGap="10px" fxLayoutGap.xs="0">
+
+
+  <div fxLayout="column" fxLayoutAlign="none center" fxFlex="60%" fxLayoutGap="10px">
     <h2>{{ book.title }}</h2>
     <h3>{{ book.author }},{{book.genre}}</h3>
     <div fxLayout="row" fxLayoutAlign="start center">
-      <span class="content">{{ book.content }}</span>
+      <span class="scroll-block-content">{{ book.content }}</span>
     </div>
   </div>
 
@@ -39,6 +41,7 @@
 </div>
   <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-evenly center" class="review-block">
     <div *ngFor="let review of book.reviews" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-evenly center">
+      <div class="line"></div>
       <h4>{{ review.reviewer }}</h4>
       <p class="review-message">{{ review.message }}</p>
     </div>

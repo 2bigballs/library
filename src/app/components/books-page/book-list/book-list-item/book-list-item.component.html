@@ -1,17 +1,31 @@
-<mat-card class="my-card">
-  <img mat-card-sm-image [src]="book.cover">
-  <mat-card-title>{{book.title}}</mat-card-title>
-  <mat-card-content>
-    Review: {{book.reviewsNumber}}
-    Review: {{book.rating | number:"1.1-1"}}
+<mat-card class="my-card" fxLayout="row">
+  <mat-card-content class="bookImg" fxFlex="20">
+    <img class="imgBook" [src]="book.cover">
+  </mat-card-content>
+  <mat-card-content fxLayout="column" fxFlex="70" fxLayoutAlign="space-evenly center">
+    <mat-card-title class="bookTitle">{{book.title}}</mat-card-title>
+    <mat-card-content fxFlex="70" fxLayoutAlign="space-evenly center">
+      <mat-card-content fxLayout="row" >
+      <p class="pReview">
+        Review: {{book.reviewsNumber}}
+      </p>
+      <p class="pRating">
+        Rating: {{book.rating | number:"1.0-1"}}
+      </p>
+      </mat-card-content>
+    </mat-card-content>
   </mat-card-content>
 
-  <mat-card-actions>
-  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="handleEdit()">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="handleView()">
-    <mat-icon>visibility</mat-icon>
-  </button>
+
+  <mat-card-actions fxLayoutAlign="end start">
+    <mat-card-content fxLayoutAlign="space-between center" fxFlex="120px">
+      <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="handleEdit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="handleView()">
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </mat-card-content>
   </mat-card-actions>
 </mat-card>

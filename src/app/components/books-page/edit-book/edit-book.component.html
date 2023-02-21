@@ -20,10 +20,10 @@
       </mat-form-field>
       <mat-form-field>
         <ngx-mat-file-input [formControl]="cover" [multiple]="false" accept=".png, .jpg, .jpeg" [color]="color" [errorStateMatcher]="matcher">
-          <mat-error *ngIf="cover?.hasError('required')">
-              Cover is <strong>required</strong>
-          </mat-error>
         </ngx-mat-file-input>
+        <mat-error *ngIf="cover?.hasError('required')">
+          Cover is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Genre:</mat-label>
@@ -57,11 +57,11 @@
     </mat-card-content >
 
 
-    <mat-card-content fxLayoutAlign="right" fxFlex="650px">
+    <mat-card-content fxLayoutAlign="right">
 
-        <mat-form-field fxFlex="100%">
+        <mat-form-field fxFlex="100%" class="textBox">
           <mat-label>Content:</mat-label>
-          <textarea matInput id="content" formControlName="content" required rows="10" [errorStateMatcher]="matcher"></textarea>
+          <textarea matInput id="content" formControlName="content" rows="11" required [errorStateMatcher]="matcher" ></textarea>
           <mat-error *ngIf="bookForm.get('content')?.hasError('required')">
             Content is <strong>required</strong>
           </mat-error>

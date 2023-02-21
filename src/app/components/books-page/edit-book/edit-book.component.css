@@ -2,3 +2,17 @@
   background-color:yellow!important;
 
 }
+.mat-mdc-card-content
+{
+  margin-right:80px;
+}
+.mat-mdc-card
+{
+  margin-top:30px;
+}
+.textBox
+{
+  margin-top:25px;
+  width:500px;
+  height: 315px;
+}

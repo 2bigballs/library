@@ -1,6 +1,6 @@
 <mat-button-toggle-group [(ngModel)]="filterBooks" aria-label="Font Style" (ngModelChange)="onChangeFilter()">
-    <mat-button-toggle value="All">All</mat-button-toggle>
-    <mat-button-toggle value="Recommended">Recommended</mat-button-toggle>
+    <mat-button-toggle value="All" class="ChooseButton">All</mat-button-toggle>
+    <mat-button-toggle value="Recommended" class="ChooseButton">Recommended</mat-button-toggle>
 </mat-button-toggle-group>
 <div class="scroll-block">
   <mat-grid-list cols="2" rowHeight="150px" class="wrapBooksBlock" gutterSize="15px">
