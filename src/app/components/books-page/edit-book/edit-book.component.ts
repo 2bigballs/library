@@ -64,7 +64,7 @@ export class EditBookComponent {
   fileAttr = 'Choose File';
 
 
-  constructor(private bookService: BookService, private store: Store,private snackbarService: SnackbarService) {
+  constructor(private bookService: BookService, private store: Store) {
 
     this.store.select(selectedBook).subscribe(books => {
       if (!books) {

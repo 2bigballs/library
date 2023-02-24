@@ -6,9 +6,9 @@ import { Observable, EMPTY } from 'rxjs';
 import * as ModalActions from './modal.actions';
 import * as BookActions from "../book/book.actions";
 import {openModal} from "./modal.actions";
-import {ViewBookComponent} from "../../modals/view-book/view-book.component";
+import {ViewBookComponent} from "../../view-book/view-book.component";
 import {IViewBook} from "../../models/view-book";
-import {ModalService} from "../../services/modal.service";
+import {ModalService} from "../../../modal/modal.service";
 
 @Injectable()
 export class ModalEffects {

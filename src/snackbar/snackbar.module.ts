@@ -5,6 +5,7 @@ import {metaReducers, reducers} from "../app/reducers";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {EffectsModule} from "@ngrx/effects";
 import {SnackbarEffects} from "./store/snackbar.effects";
+import {SnackbarService} from "./snackbar.service";
 
 
 
@@ -22,6 +23,8 @@ import {SnackbarEffects} from "./store/snackbar.effects";
     }),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     EffectsModule.forFeature([SnackbarEffects]),
+
   ],
+  providers: [SnackbarService],
 })
 export class SnackbarModule { }

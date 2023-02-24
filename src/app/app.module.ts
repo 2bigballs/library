@@ -17,11 +17,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import {BookEffects} from "./store/book/book.effects";
 import {MatDialogModule} from "@angular/material/dialog";
-import {ViewBookComponent} from "./modals/view-book/view-book.component";
+import {ViewBookComponent} from "./view-book/view-book.component";
 import {ModalEffects} from "./store/modal/modal.effects";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {SnackbarModule} from "../snackbar/snackbar.module";
-import {SnackbarEffects} from "../snackbar/store/snackbar.effects";
+
 
 
 
@@ -54,8 +54,7 @@ import {SnackbarEffects} from "../snackbar/store/snackbar.effects";
     EffectsModule.forRoot([BookEffects, ModalEffects]),
     MatDialogModule,
     MatToolbarModule,
-    SnackbarModule,
-
+    SnackbarModule
 
   ],
   providers: [],

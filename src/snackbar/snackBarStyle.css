@@ -1,12 +1,13 @@
+.colorSnackBarFailure.mat-mdc-snack-bar-container{
+  --mdc-snackbar-container-color:  darkred;
 
-  .colorSnackBarSuccessful,.mat-mdc-snack-bar-container{
+}
 
-    --mdc-snackbar-container-color: #2b582b!important;
-  }
-  .colorSnackBarFailure,.mat-mdc-snack-bar-container{
-    --mdc-snackbar-container-color:  darkred !important;
+.colorSnackBarSuccessful.mat-mdc-snack-bar-container{
 
-  }
+    --mdc-snackbar-container-color: #2b582b;
+}
+
   .mat-mdc-snack-bar-container{
     --mat-mdc-snack-bar-button-color: white;
     --mdc-snackbar-supporting-text-color: white;

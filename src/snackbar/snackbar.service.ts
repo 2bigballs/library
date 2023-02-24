@@ -1,9 +1,11 @@
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 import {Injectable} from "@angular/core";
 import {ColorClassNameEnum} from "./colorClassNameEnum";
+import {SnackbarModule} from "./snackbar.module";
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: SnackbarService
 })
 export class SnackbarService {
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';

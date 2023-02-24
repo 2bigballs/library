@@ -5,7 +5,7 @@ import {Observable, EMPTY, of, tap, empty, from} from 'rxjs';
 import * as BookActions from './book.actions';
 import {BookService} from "../../services/book.service";
 import {openModal} from "../modal/modal.actions";
-import {ViewBookComponent} from "../../modals/view-book/view-book.component";
+import {ViewBookComponent} from "../../view-book/view-book.component";
 import * as SnackbarActions from '../../../snackbar/store/snackbar.actions';
 import {HttpErrorResponse} from "@angular/common/http";
 import {convertHttpErrorResponse} from "../../services/helpers/httpClient.helper";
