@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {BookService} from "./services/book.service";
+import {BookService} from "../book-page/services/book.service";
 import {__assign} from "tslib";
 
 @Component({

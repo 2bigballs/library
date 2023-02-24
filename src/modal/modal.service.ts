@@ -4,7 +4,7 @@ import {Dialog} from "@angular/cdk/dialog";
 import {props} from "@ngrx/store";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: ModalService
 })
 export class ModalService {
 

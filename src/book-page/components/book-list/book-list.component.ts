@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {BookService} from "../../../services/book.service";
+import {BookService} from "../../services/book.service";
 import {Observable, tap} from "rxjs";
-import {IBook} from "../../../models/book";
+import {IBook} from "../../models/book";
 import {MockStore} from "@ngrx/store/testing";
 import {Store} from "@ngrx/store";
-import * as BookActions from "../../../store/book/book.actions";
-import {getBooks} from "../../../store/book/book.selectors";
+import * as BookActions from "../../store/book/book.actions";
+import {getBooks} from "../../store/book/book.selectors";
 
 @Component({
   selector: 'app-book-list',

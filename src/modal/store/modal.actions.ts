@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import {IViewBook} from "../../models/view-book";
+import {IViewBook} from "../../book-page/models/view-book";
 import {MatDialogRef} from "@angular/material/dialog";
 import {R} from "@angular/cdk/keycodes";
 

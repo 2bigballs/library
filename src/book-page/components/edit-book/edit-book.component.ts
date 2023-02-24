@@ -8,13 +8,13 @@ import {
   NgForm,
   Validators
 } from "@angular/forms";
-import {IBookForm} from "../../../models/bookForm";
+import {IBookForm} from "../../models/bookForm";
 import {ErrorStateMatcher, ThemePalette} from "@angular/material/core";
-import {BookService} from "../../../services/book.service";
+import {BookService} from "../../services/book.service";
 import {Store} from "@ngrx/store";
-import * as BookActions from "../../../store/book/book.actions";
-import {selectedBook} from "../../../store/book/book.selectors";
-import {SnackbarService} from "../../../../snackbar/snackbar.service";
+import * as BookActions from "../../store/book/book.actions";
+import {selectedBook} from "../../store/book/book.selectors";
+import {SnackbarService} from "../../../snackbar/snackbar.service";
 
 type BookForm = { [T in keyof Omit<IBookForm, "id">]: AbstractControl<any> }
 

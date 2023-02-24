@@ -4,11 +4,11 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {concatMap, map} from 'rxjs/operators';
 import { Observable, EMPTY } from 'rxjs';
 import * as ModalActions from './modal.actions';
-import * as BookActions from "../book/book.actions";
+import * as BookActions from "../../book-page/store/book/book.actions";
 import {openModal} from "./modal.actions";
-import {ViewBookComponent} from "../../view-book/view-book.component";
-import {IViewBook} from "../../models/view-book";
-import {ModalService} from "../../../modal/modal.service";
+import {ViewBookComponent} from "../../book-page/modals/view-book/view-book.component";
+import {IViewBook} from "../../book-page/models/view-book";
+import {ModalService} from "../modal.service";
 
 @Injectable()
 export class ModalEffects {
