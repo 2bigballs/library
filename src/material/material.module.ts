@@ -14,6 +14,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 
@@ -34,7 +35,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatGridListModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule,
 
 
 

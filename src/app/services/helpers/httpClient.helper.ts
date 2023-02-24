@@ -1,5 +1,6 @@
 import {IBookForm} from "../../models/bookForm";
 import {T} from "@angular/cdk/keycodes";
+import {HttpErrorResponse} from "@angular/common/http";
 
 export const convertObjectToFromData=<T>(object: T,formData:FormData)=>{
   for (const key in object) {
@@ -9,3 +10,9 @@ export const convertObjectToFromData=<T>(object: T,formData:FormData)=>{
   }
   return formData;
 }
+
+export const convertHttpErrorResponse=(errorResponse:HttpErrorResponse)=>{
+  const errorMessage=errorResponse.error.join('\n');
+  return errorMessage;
+}
+

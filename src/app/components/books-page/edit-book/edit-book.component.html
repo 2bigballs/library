@@ -1,4 +1,4 @@
-<form [formGroup]="bookForm" (ngSubmit)="bookId ? updateBook() : addBook()"  (reset)="clearForm()" fxLayout="column">
+<form [formGroup]="bookForm" #formDirective="ngForm"  (ngSubmit)="bookId ? updateBook() : addBook()"  (reset)="clearForm()" fxLayout="column">
 
   <mat-card-header>
     <mat-card-title>
@@ -19,11 +19,27 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <ngx-mat-file-input [formControl]="cover" [multiple]="false" accept=".png, .jpg, .jpeg" [color]="color" [errorStateMatcher]="matcher">
-        </ngx-mat-file-input>
-        <mat-error *ngIf="cover?.hasError('required')">
+        <div>
+          <mat-toolbar>
+            <!-- Display files names -->
+            <input  matInput [value]="fileAttr">
+            <!-- Browse Button -->
+            <button mat-flat-button color="primary">Browse File</button>
+          </mat-toolbar>
+          <!-- Fetch selected filed on change -->
+          <input
+
+            type="file"
+            id="uploadFile"
+            (change)="uploadFileEvt($event)"
+            multiple="multiple"
+            accept="image/*"
+          />
+        </div>
+        <mat-error *ngIf="bookForm.get('cover')?.hasError('required')">
           Cover is <strong>required</strong>
         </mat-error>
+
       </mat-form-field>
       <mat-form-field>
         <mat-label>Genre:</mat-label>
@@ -80,7 +96,8 @@
   <mat-card-content fxLayoutAlign="center none">
     <mat-card-actions fxFlex="300px" fxLayoutAlign="space-evenly none">
       <button mat-raised-button type="submit" [disabled]="bookForm.invalid" fxFlex="120px" class="buttonAdd"> {{bookId ?"Update" : "Add"}}</button>
-      <button mat-raised-button color="primary" type="reset" fxFlex="120px">Clear</button>
+      <button mat-raised-button color="primary" fxFlex="120px" (click)="clearForm();">Clear</button>
+
     </mat-card-actions>
   </mat-card-content>
   </mat-card>

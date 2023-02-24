@@ -13,16 +13,22 @@ export const getBooksSuccess = createAction(
   props<{ books: IBook[] }>()
 )
 
-
 export const createBook = createAction(
   '[Book] Create Book',
   props<{ book: Partial<IBookForm> }>()
+)
+export const createBookSuccessful = createAction(
+  '[Book] Create Book Successful',
 )
 
 export const updateBook= createAction(
   '[Book] Update Book',
   props<{ book: Partial<IBookForm> }>()
 )
+export const updateBookSuccessful= createAction(
+  '[Book] Update Book Successful',
+)
+
 export const selectBook= createAction(
   '[Book] Select Book',
   props<{ book?: IBook }>()

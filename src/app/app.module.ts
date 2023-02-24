@@ -19,9 +19,9 @@ import {BookEffects} from "./store/book/book.effects";
 import {MatDialogModule} from "@angular/material/dialog";
 import {ViewBookComponent} from "./modals/view-book/view-book.component";
 import {ModalEffects} from "./store/modal/modal.effects";
-
-
-
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {SnackbarModule} from "../snackbar/snackbar.module";
+import {SnackbarEffects} from "../snackbar/store/snackbar.effects";
 
 
 
@@ -32,7 +32,7 @@ import {ModalEffects} from "./store/modal/modal.effects";
     BookListComponent,
     BookListItemComponent,
     EditBookComponent,
-    ViewBookComponent
+    ViewBookComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,10 +50,11 @@ import {ModalEffects} from "./store/modal/modal.effects";
         strictActionImmutability: false,
       },
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([BookEffects,ModalEffects]),
-    MatDialogModule
-
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
+    EffectsModule.forRoot([BookEffects, ModalEffects]),
+    MatDialogModule,
+    MatToolbarModule,
+    SnackbarModule,
 
 
   ],

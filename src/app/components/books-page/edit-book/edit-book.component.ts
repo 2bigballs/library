@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -14,9 +14,9 @@ import {BookService} from "../../../services/book.service";
 import {Store} from "@ngrx/store";
 import * as BookActions from "../../../store/book/book.actions";
 import {selectedBook} from "../../../store/book/book.selectors";
+import {SnackbarService} from "../../../../snackbar/snackbar.service";
 
 type BookForm = { [T in keyof Omit<IBookForm, "id">]: AbstractControl<any> }
-
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -32,10 +32,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class EditBookComponent {
+
+  @ViewChild('formDirective') myForm!: NgForm;
   matcher = new MyErrorStateMatcher();
   bookForm = new FormGroup<BookForm>({
     title: new FormControl("", [Validators.required, Validators.maxLength(50)]),
-    cover: new FormControl(null, Validators.required),
+    cover: new FormControl(null, [Validators.required]),
     genre: new FormControl("", {
       updateOn: "change",
       validators: [
@@ -59,14 +61,16 @@ export class EditBookComponent {
   });
   color: ThemePalette = "accent";
   bookId?: number;
+  fileAttr = 'Choose File';
 
 
-  constructor(private bookService: BookService, private store: Store) {
+  constructor(private bookService: BookService, private store: Store,private snackbarService: SnackbarService) {
 
     this.store.select(selectedBook).subscribe(books => {
       if (!books) {
         return;
       }
+
       this.bookId = books.id;
       this.bookForm.patchValue({
         title: books.title,
@@ -76,11 +80,8 @@ export class EditBookComponent {
 
       })
       const filenameFromUrl = this.getFileName(books.cover)
+      this.fileAttr=filenameFromUrl!;
       this.bookForm.controls.cover.setValue(new File([], filenameFromUrl!));
-    })
-
-    this.bookForm.statusChanges.subscribe(status => {
-      console.log(this.bookForm);
     })
   }
 
@@ -105,9 +106,22 @@ export class EditBookComponent {
   }
 
   clearForm(): void {
-    this.bookForm.reset();
+    this.myForm.resetForm();
+    this.fileAttr="Choose File";
     this.bookId = undefined;
     this.store.dispatch(BookActions.selectBook({book: undefined}));
+  }
+
+  uploadFileEvt(imgFile: any) {
+    if (imgFile.target.files && imgFile.target.files[0]) {
+      this.fileAttr = imgFile.target.files[0].name;
+      this.bookForm.controls.cover.setValue(imgFile.target.files[0]);
+    }
+  }
+  validateCover()
+  {
+    this.bookForm.get('cover')?.markAsTouched();
+    this.bookForm.get('cover')?.updateValueAndValidity();
   }
 
 
